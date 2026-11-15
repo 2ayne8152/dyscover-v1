@@ -40,7 +40,10 @@ def analyze_oof_predictions():
 
                 fpr_rate = fp/ (fp+tn) if (fp+tn) > 0 else 0
                 fnr_rate = fn/ (fn+tp) if (fn+tp) > 0 else 0
-                auc_gap = sub_auc - overall_auc
+
+                complement = oof_df[oof_df[group] != level]
+                complement_auc = roc_auc_score(complement['y_true'], complement[prob_col])
+                auc_gap = sub_auc - complement_auc
 
                 metrics_records.append({
                     "Model": model_name,

@@ -15,7 +15,7 @@ def generate_scorecard(X_train, y_train):
     scoring = ['roc_auc', 'average_precision', 'precision', 'recall', 'f1']
 
     for model_name, (model, scale_type) in MODELS.items():
-        print(f"\n--- Evaluating{model_name} ---")
+        print(f"\n--- Evaluating {model_name} ---")
         try:
             pipe = make_pipeline(model, scale_type)
 

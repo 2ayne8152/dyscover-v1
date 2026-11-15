@@ -152,6 +152,7 @@ class NHANES:
         # By dropping NaNs in 'target', we isolate the SCREEN-ELIGIBLE population!
         cycle = df['cycle'].iloc[0]
         df = df.dropna(subset=['target']).copy()
+        df['target'] = df['target'].astype(int)
         self._log(cycle, 5, df)
         return df
 
