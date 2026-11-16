@@ -6,7 +6,7 @@ from part_a.explain_partA import generate_explanations
 
 if __name__ == "__main__":
     nh = NHANES()
-    X_train, X_test, y_train, y_test, df_1720, _ = nh.load_data_a(force_rebuild=True)
+    X_train, X_test, y_train, y_test, df_1720, _ = nh.load_data_a(force_rebuild=False)
     y_train = y_train.astype(int).values.ravel()
     y_test = y_test.astype(int).values.ravel()
     
