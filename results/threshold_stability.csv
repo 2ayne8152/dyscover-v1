@@ -1,9 +1,9 @@
 Model,Global_Thresh,CV_Thresh_Mean,CV_Thresh_Std
-LogisticRegression,0.4143,0.4064,0.0104
+LogisticRegression,0.4821,0.4747,0.0110
 MLPClassifier,0.4280,0.4355,0.0156
 GaussianNB,0.0191,0.0233,0.0095
 KNeighbors,0.4000,0.4400,0.0800
-CalibratedSVC,0.3792,0.3812,0.0061
+CalibratedSVC,0.4169,0.4173,0.0007
 DecisionTree,1.0000,1.0000,0.0000
-RandomForest,0.4200,0.4160,0.0080
-XGBoost,0.3550,0.3285,0.0300
+RandomForest,0.4900,0.4740,0.0196
+XGBoost,0.4370,0.4341,0.0086

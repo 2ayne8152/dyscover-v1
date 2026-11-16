@@ -162,12 +162,12 @@ CATEGORICAL_COLS = [
 ]
 
 MODELS = {
-    "LogisticRegression": (LogisticRegression(random_state=RANDOM_STATE, verbose=0, max_iter=1000), "standard"),
-    "MLPClassifier": (MLPClassifier(random_state=RANDOM_STATE, max_iter=1000, early_stopping=True), "standard"),
-    "GaussianNB": (GaussianNB(), "standard"),
-    "KNeighbors": (KNeighborsClassifier(), "standard"),
-    "CalibratedSVC": (CalibratedClassifierCV(SVC(verbose=0, random_state=RANDOM_STATE), ensemble=False), "standard"),
-    "DecisionTree": (DecisionTreeClassifier(random_state=RANDOM_STATE), "none"),
-    "RandomForest": (RandomForestClassifier(random_state=RANDOM_STATE, verbose=0), "none"),
-    "XGBoost": (XGBClassifier(random_state=RANDOM_STATE, n_jobs=4), "none")
+    "LogisticRegression": (LogisticRegression(random_state=RANDOM_STATE, class_weight='balanced', verbose=0, max_iter=1000), "standard"),
+    "MLPClassifier": (MLPClassifier(random_state=RANDOM_STATE, max_iter=1000, early_stopping=True), "standard"),  # no class_weight support — left unweighted
+    "GaussianNB": (GaussianNB(), "standard"),  # weighted via sample_weight in scores_partA.py, not here
+    "KNeighbors": (KNeighborsClassifier(), "standard"),  # no weighting support — left unweighted
+    "CalibratedSVC": (CalibratedClassifierCV(SVC(verbose=0, random_state=RANDOM_STATE, class_weight='balanced'), ensemble=False), "standard"),
+    "DecisionTree": (DecisionTreeClassifier(random_state=RANDOM_STATE, class_weight='balanced'), "none"),
+    "RandomForest": (RandomForestClassifier(random_state=RANDOM_STATE, verbose=0, class_weight='balanced'), "none"),
+    "XGBoost": (XGBClassifier(random_state=RANDOM_STATE, n_jobs=4), "none")  # scale_pos_weight set at runtime in scores_partA.py
 }
