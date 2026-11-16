@@ -1,4 +1,4 @@
-from NHANES import NHANES
+from nhanes import NHANES
 from part_a.scores_partA import generate_scorecard
 from part_a.oof_partA import generate_oof
 from part_a.analysis_partA import analyze_oof_predictions
